@@ -4,8 +4,12 @@ if(!isset($_SESSION['userData'])){
     header("location: ../");
     exit();
 }
-else{
 
+   
+
+if (isset($_SESSION['alert_message'])) {
+    echo "<script>alert('" . $_SESSION['alert_message'] . "');</script>";
+    unset($_SESSION['alert_message']);
 
 }
 

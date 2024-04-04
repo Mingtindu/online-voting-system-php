@@ -93,22 +93,22 @@ else{
                         <a href="voter.php"><h3> Voter</h3> </a>
                     </div> 
   
-                    <div class="nav-option option1"> 
+                    <div class="nav-option option2"> 
                         <img src= 
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
                             class="nav-img" 
                             alt="report"> 
-                        <a href="candidate.php" style="color: white;" ><h3> Candidate</h3></a> 
+                        <a href="candidate.php" ><h3> Candidate</h3></a> 
                     </div> 
   
                    
   
-                    <div class="nav-option option5"> 
+                    <div class="nav-option option1"> 
                         <img src= 
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
                             class="nav-img" 
                             alt="blog"> 
-                            <a href="results.php"><h3> Results</h3></a> 
+                            <a href="results.php"  style="color: white;"> <h3> Results</h3></a> 
                     </div> 
   
                     <div class="nav-option option6"> 
@@ -124,7 +124,7 @@ else{
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
                             class="nav-img" 
                             alt="logout"> 
-                        <h3>Logout</h3> 
+                            <a href="logout.php"><h3> Logout</h3></a>  
                     </div> 
   
                 </div> 
