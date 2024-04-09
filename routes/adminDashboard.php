@@ -81,7 +81,7 @@ session_start();
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
                             class="nav-img" 
                             alt="report"> 
-                        <a href="managegroup.html"><h3> Manage Groups</h3></a> 
+                        <a href="managegroup.html"><h3> Manage Elections</h3></a> 
                     </div> 
   
                     <div class="nav-option option4"> 
@@ -89,7 +89,7 @@ session_start();
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
                             class="nav-img" 
                             alt="institution"> 
-                            <a href="groups.html"><h3> Groups</h3></a> 
+                            <a href="groups.html"><h3> Manage Candidates</h3></a> 
                         
                     </div> 
                     
