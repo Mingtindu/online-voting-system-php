@@ -107,7 +107,7 @@ session_start();
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
                             class="nav-img" 
                             alt="report"> 
-                        <a href="managegroup.html" style="color: white;"><h3> Manage Eletions</h3></a> 
+                        <a href="managegroup.php" style="color: white;"><h3> Manage Eletions</h3></a> 
                     </div> 
   
                     <div class="nav-option option4"> 
@@ -115,7 +115,7 @@ session_start();
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
                             class="nav-img" 
                             alt="institution"> 
-                            <a href="candidatemanage.html"><h3> Manage Candidate</h3></a> 
+                            <a href="candidatemanage.php"><h3> Manage Candidate</h3></a> 
                         
                     </div> 
                     
@@ -222,7 +222,7 @@ session_start();
                             // Output data of each row
                             while($row = $result->fetch_assoc()) {
                                 echo '<div class="item1">';
-                                echo '<h3 class="t-op-nextlvl">' . $row["name"] . '</h3>';
+                                echo '<h3 class="t-op-nextlvl" style="margin: 0;">' . $row["name"] . '</h3>';
                                 echo '<h3 class="t-op-nextlvl">' . $row["date"] . '</h3>';
                                 echo '<h3 class="t-op-nextlvl">' . $row["time"] . '</h3>';
                                
