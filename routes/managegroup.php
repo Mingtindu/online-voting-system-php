@@ -24,6 +24,29 @@ session_start();
           href="style.css"> 
     <link rel="stylesheet" 
           href="responsive.css"> 
+          
+    <style>
+        .input-section{
+            text-align:center;
+            justify-content:center;
+            display:flex;
+            flex-direction:column;
+        }
+        .input-section h1{
+            text-align:center;
+            font-size:40px;
+            font-weight:500;
+
+        }
+        .input-section input{
+            width:400px;
+            margin:10px;
+            gap:20px;
+        }
+        .input-section label{
+            margin-right:10px;
+        }
+    </style>
 </head> 
   
 <body> 
@@ -203,7 +226,7 @@ session_start();
                                 echo '<h3 class="t-op-nextlvl">' . $row["date"] . '</h3>';
                                 echo '<h3 class="t-op-nextlvl">' . $row["time"] . '</h3>';
                                
-                                // You may add condition to display "Published" based on certain criteria
+                                
                                 echo '</div>';
                             }
                         } else {
@@ -213,14 +236,28 @@ session_start();
                         ?>
   
                     </div> 
+                    
                 </div> 
             </div> 
+            <div class="report-container">
+           
+            <div class="input-section">
+            <h2>Add Elections</h2>
+                <form action="../api/electionAdd.php" method="post">
+                    
+                <label for="e-name">Name<input type="text" name="e-name"></label>
+                <label for="e-date">Date<input type="date" name="e-date" ></label>
+                <label for="e-time">Time<input type="time" name="e-time" ></label>
+                <input type="submit" value="Add Election">
+                </form>
+                
+            </div>
+         
+            </div>
         </div> 
+   
     </div> 
-    <div class="addElection">
-        <h2>Add Elections</h2>
-    </div>
+   
   
-    <script src="./index.js"></script> 
 </body> 
 </html>
