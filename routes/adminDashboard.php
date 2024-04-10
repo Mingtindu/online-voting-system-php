@@ -89,7 +89,7 @@ session_start();
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
                             class="nav-img" 
                             alt="institution"> 
-                            <a href="groups.php"><h3> Manage Candidates</h3></a> 
+                            <a href="candidatemanage.php"><h3> Manage Candidates</h3></a> 
                         
                     </div> 
                     

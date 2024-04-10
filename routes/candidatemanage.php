@@ -1,45 +1,79 @@
 <?php
 session_start();
-if(!isset($_SESSION['userData'])){
-    header("location: ../");
-    exit();
-}
-else{
-    require("../api/connect.php");
-    if(isset($_POST['modify_candidate'])){
-        // Handle modify candidate action
-        $id = $_POST['id']; 
-        $modified_name = $_POST['modified_name'];
-        $modified_address = $_POST['modified_address'];
-        
-        // Update the candidate information in the database
-        $update_sql = "UPDATE candidate SET name='$modified_name', address='$modified_address' WHERE id='$id'";
-        if(mysqli_query($connect, $update_sql)){
-            echo "Candidate information updated successfully.";
-        } else{
-            echo "Error updating candidate information: " . mysqli_error($connect);
-        }
-    }
+// if(!isset($_SESSION['userData'])){
+//     header("location: ../");
+//     exit();
+// }
 
-    if(isset($_POST['delete_candidate'])){
-        // Handle delete candidate action
-        $id = $_POST['id']; // Assuming you have a hidden input field containing candidate id
-        
-        // Delete the candidate from the database
-        $delete_sql = "DELETE FROM candidate WHERE id='$id'";
-        if(mysqli_query($connect, $delete_sql)){
-            echo "Candidate deleted successfully.";
-        } else{
-            echo "Error deleting candidate: " . mysqli_error($connect);
-        }
-    }
-}
-
+    
 ?>
 <!DOCTYPE html> 
 <html lang="en"> 
   
 <head> 
+    <style>
+        /* Style for report container */
+.report-container {
+  margin: 20px;
+}
+
+/* Style for report header */
+.report-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for report body */
+.report-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Style for report topic heading */
+.report-topic-heading {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style for individual candidate item */
+.candidate-item {
+  width: calc(25% - 20px); /* Adjust the width as needed for responsiveness */
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.t-op {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+    </style>
+   
     <meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible"
           content="IE=edge"> 
@@ -103,7 +137,7 @@ else{
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
                             class="nav-img" 
                             alt="dashboard"> 
-                        <h3> Admin Info</h3> 
+                            <a href="adminDashboard.php"><h3> Admin Info</h3></a> 
                     </div> 
   
                     <div class="nav-option option3"> 
@@ -111,7 +145,7 @@ else{
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
                             class="nav-img" 
                             alt="report"> 
-                        <a href="managegroup.html"><h3> Manage Eletions</h3></a> 
+                        <a href="managegroup.php"><h3> Manage Eletions</h3></a> 
                     </div> 
   
                     <div class="nav-option option1"> 
@@ -170,40 +204,45 @@ else{
   
                 <div class="report-body"> 
                     <div class="report-topic-heading"> 
-                        <h3 class="t-op">Name</h3> 
-                        <h3 class="t-op">Address</h3> 
-                        <h3 class="t-op">Vote count</h3> 
-                        <h3 class="t-op">Action</h3> 
-                    </div> 
-  
-<!--                     
-                        <div class="item1"> 
-                            <h3 class="t-op-nextlvl">Article 73</h3> 
-                            <h3 class="t-op-nextlvl">2.9k</h3> 
-                            <h3 class="t-op-nextlvl">210</h3> 
-                            <h3 class="t-op-nextlvl label-tag">Published</h3>  -->
+                       
+                    </div>                
                           
                           
                         <?php
+                        require('../api/connect.php');
                         $sql = "SELECT * FROM candidate";
                         $result = mysqli_query($connect,$sql);
                     
                         // Check if there are any results
                         if ($result->num_rows > 0) {
                             // Output data of each row
-                            while($row = $result->fetch_assoc()) {
+                            while ($row = $result->fetch_assoc()) {
                                 // Echo the retrieved data within your HTML structure
-                                echo "<div class='items'>";
-                                echo "<div class='item1'>";
-                                echo "<h3 class='t-op-nextlvl'>" . $row["name"] . "</h3>";
-                                echo "<h3 class='t-op-nextlvl'>" . $row["address"] . "</h3>";
-                                echo "<h3 class='t-op-nextlvl'>" . $row["voteCount"] . "</h3>";
-                                echo "<h3 class='t-op-nextlvl label-tag'>" ."<button name ='modify_candidate' type='submit'>modify</button> <button name ='delete_candidate' type='submit'>delete</button>" . "</h3>";
-                               
+                                echo "<div class='candidate-item'>";
+                                echo "<h3 class='t-op'>" . $row["name"] . "</h3>";
+                                echo "<h3 class='t-op'>" . $row["address"] . "</h3>";
+                                echo "<h3 class='t-op'>" . $row["voteCount"] . "</h3>";
+                                echo "<div class='button-container'>";
+                                echo "<form method='post' action='../api/candidateModify.php'>";
+                                echo "<input type='hidden' name='candidate_id' value='" . $row["id"] . "'>";
+
+                                echo "<input type='hidden' name='candidate_id' value='" . $row["id"] . "'>";
+                                echo "<button name='modify_candidate' type='submit'>Modify</button>";
+                                echo "</form>";
+                                echo "<form method='post' action='../api/candidateDelete.php'>";
+                                echo "<input type='hidden' name='candidate_id' value='" . $row["id"] . "'>";
+                                echo "<input type='hidden' name='candidate_id' value='" . $row["id"] . "'>";
+                                echo "<button name='delete_candidate' type='submit'>Delete</button>";
+                                echo "</form>";
+
+
+                                
                                 echo "</div>";
                                 echo "</div>";
                             }
-                        } else {
+                        }
+                        
+                        else {
                             echo "0 results";
                         }
                       
