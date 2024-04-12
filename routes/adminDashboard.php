@@ -10,6 +10,45 @@ if(!isset($_SESSION['adminData'])){
 <html lang="en"> 
   
 <head> 
+    <style>
+        .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: #fefefe;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        width: 80%;
+        max-width: 500px;
+    }
+    .btn {
+        display: block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    </style>
     <meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible"
           content="IE=edge"> 
@@ -181,13 +220,61 @@ if(!isset($_SESSION['adminData'])){
                 </div> 
   
                 <div class="report-body"> 
-                    <div class="info">
+                    <div class="container">
+                        <?php
+                         $email = $_SESSION['adminData']['email'];
+                         $password = $_SESSION['adminData']['password'];
+                     
+                         // You can use $email and $password as needed in your code
+                         echo "Email: $email <br>";
+                         echo "Password: $password";
+
+                        ?>
+                         <button class="btn" onclick="showModifyForm()">Modify Details</button>
 
                     </div>
                    
-  
-                   
                 </div> 
+                <div id="modifyModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Modify Admin Details</h2>
+        <form id="modifyForm">
+            <label for="newEmail">New Email:</label>
+            <input type="email" id="newEmail" name="newEmail" required><br><br>
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" required><br><br>
+            <input type="submit" value="Save Changes">
+        </form>
+    </div>
+</div>
+
+<script>
+function showModifyForm() {
+    var modal = document.getElementById("modifyModal");
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    var modal = document.getElementById("modifyModal");
+    modal.style.display = "none";
+}
+
+document.getElementById("modifyForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var form = document.getElementById("modifyForm");
+    var formData = new FormData(form);
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText); // You can display a success message or handle the response as needed
+            closeModal();
+        }
+    };
+    xhr.open("POST", "../api/modify_admin.php", true);
+    xhr.send(formData);
+});
+</script>
             </div> 
         </div> 
     </div> 
