@@ -7,7 +7,7 @@ $password=$_POST['password'];
 $check= mysqli_query($connect,"SELECT * FROM admindetails WHERE email='$email' AND password ='$password'");
 if(mysqli_num_rows($check)>0){
     $userData = mysqli_fetch_array($check);
-    $_SESSION['adminData']=$adminData;
+    $_SESSION['adminData']=$userData;
     echo'
     <script>
     window.location= "../routes/adminDashboard.php";
