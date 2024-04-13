@@ -217,32 +217,35 @@ session_start();
                         <h3 class="t-op">Date</h3> 
                         <h3 class="t-op">Time</h3> 
                         <h3 class="t-op">Action</h3> 
-                        
-                        
                     </div> 
   
                     <div class="items"> 
-                        <?php
-                        require('../api/connect.php');
-                      $sql = "SELECT name, date, time FROM elections";
-                        $result = $connect->query($sql);
-                        if ($result->num_rows > 0) {
-                            // Output data of each row
-                            while($row = $result->fetch_assoc()) {
-                                echo '<div class="item1">';
-                                echo '<h3 class="t-op-nextlvl" style="width: 80px;;">' . $row["name"] . '</h3>';
-                                echo '<h3 class="t-op-nextlvl">' . $row["date"] . '</h3>';
-                                echo '<h3 class="t-op-nextlvl">' . $row["time"] . '</h3>';
-                                echo '<span><button class"t-op-nextlvl">Delete</button> <button class="t-op-nextlvl">Modify</button> </span>';
-                                echo '</div>';
-                            }
-                        } else {
-                            
-                            echo "0 results";
-                        }
-                        $connect->close();
-                        ?>
-  
+                                                    <?php
+                                require('../api/connect.php');
+
+                                $sql = "SELECT id, name, date, time FROM elections"; // Include 'id' in the SELECT statement
+                                $result = $connect->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    // Output data of each row
+                                    while($row = $result->fetch_assoc()) {
+                                        echo '<div class="item1">';
+                                        echo '<h3 class="t-op-nextlvl" style="width: 80px;">' . $row["name"] . '</h3>';
+                                        echo '<h3 class="t-op-nextlvl">' . $row["date"] . '</h3>';
+                                        echo '<h3 class="t-op-nextlvl">' . $row["time"] . '</h3>';
+                                        echo '<span>';
+                                        echo '<a href="../api/deleteElection.php?id=' . $row["id"] . '"><button class="t-op-nextlvl">Delete</button></a>';
+                                        echo '<a href="../api/modifyElection.php?id=' . $row["id"] . '"><button class="t-op-nextlvl">Modify</button></a>';
+                                        echo '</span>';
+                                        echo '</div>';
+                                    }
+                                } else {
+                                    echo "0 results";
+                                }
+
+                                $connect->close();
+                                ?>
+
                     </div> 
                     
                 </div> 
