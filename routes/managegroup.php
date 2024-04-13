@@ -328,6 +328,7 @@ session_start();
         </div> 
    
     </div> 
+    <script src="./index.js"></script> 
     <script>
         function confirmDelete() {
             return confirm("Are you sure you want to delete this election?");
