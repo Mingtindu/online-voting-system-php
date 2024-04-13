@@ -69,6 +69,46 @@ session_start();
     button:hover{
         background: #3a42b6;
     }
+    .input-section{
+        margin-top: 20px;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .input-section form{
+        font-size: 18px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    input{
+        width: 60px;
+        border: 1;
+        height: 40px;
+        border: 1px solid gray;
+        border-radius: 5px;
+     
+    }
+    .btn{
+        justify-content: center;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+        height: 30px;
+        margin:10px;
+        display:flex;
+        width:80px;
+        background: #767ab5;
+        color:black;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid black;
+        margin-left: 20px;
+    }
+    .btn:hover{
+        background: #3a42b6;
+    }
     
     </style>
 </head> 
@@ -272,13 +312,15 @@ session_start();
            
             <div class="input-section">
             <h2>Add Elections</h2>
+               <div class="dis">
                 <form action="../api/electionAdd.php" method="post">
                     
-                <label for="e-name">Name<input type="text" name="e-name"></label>
-                <label for="e-date">Date<input type="date" name="e-date" ></label>
-                <label for="e-time">Time<input type="time" name="e-time" ></label>
-                <input type="submit" value="Add Election">
-                </form>
+                    <label for="e-name">Name<input type="text" name="e-name"></label>
+                    <label for="e-date">Date<input type="date" name="e-date" ></label>
+                    <label for="e-time">Time<input type="time" name="e-time" ></label>
+                    <input class="btn" type="submit" value="Add Election">
+                    </form>
+               </div>
                 
             </div>
          
