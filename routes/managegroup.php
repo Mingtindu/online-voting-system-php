@@ -51,6 +51,24 @@ session_start();
         flex-wrap: wrap;
         gap: 20px;
     }
+    button{
+        justify-content: center;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 600;
+        height: 30px;
+        margin:10px;
+        display:flex;
+        width:80px;
+        background: #767ab5;
+        color:black;
+        cursor: pointer;
+        border-radius: 8px;
+        border: 1px solid black;
+    }
+    button:hover{
+        background: #3a42b6;
+    }
     
     </style>
 </head> 
