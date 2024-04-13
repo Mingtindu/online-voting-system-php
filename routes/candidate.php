@@ -57,20 +57,6 @@ else{
               </div> 
         </div> 
   
-        <div class="message"> 
-            <div class="circle"></div> 
-            <img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png" 
-                 class="icn" 
-                 alt=""> 
-            <div class="dp"> 
-              <img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                    class="dpicn" 
-                    alt="dp"> 
-              </div> 
-        </div> 
-  
     </header> 
   
     <div class="main-container"> 
