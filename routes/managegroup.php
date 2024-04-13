@@ -292,7 +292,7 @@ session_start();
                                         echo '<h3 class="t-op-nextlvl">' . $row["date"] . '</h3>';
                                         echo '<h3 class="t-op-nextlvl">' . $row["time"] . '</h3>';
                                         echo '<span>';
-                                        echo '<a href="../api/deleteElection.php?id=' . $row["id"] . '"><button class="t-op-nextlvl">Delete</button></a>';
+                                        echo '<a href="../api/deleteElection.php?id=' . $row["id"] . '" onclick="return confirmDelete();"><button class="t-op-nextlvl">Delete</button></a>';
                                         echo '<a href="../api/modifyElection.php?id=' . $row["id"] . '"><button class="t-op-nextlvl">Modify</button></a>';
                                         echo '</span>';
                                         echo '</div>';
@@ -328,7 +328,11 @@ session_start();
         </div> 
    
     </div> 
-   
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this election?");
+        }
+        </script>
   
 </body> 
 </html>
