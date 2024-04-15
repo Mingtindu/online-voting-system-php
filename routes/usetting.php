@@ -175,9 +175,10 @@ if (isset($_SESSION['alert_message'])) {
     <a href="#" onclick="toggleEditSection()">Edit</a> 
     <div class="edit-section" id="editSection" style="display: none;">
         <!-- Your edit form goes here -->
-        <form action="edit_profile.php" method="post">
+        <form action="../api/userEdit.php" method="post">
             <label for="newName">New Name:</label>
             <input type="text" id="newName" name="newName"><br><br>
+            <input name="userId" type="hidden" value="<?php echo $userData['id'] ?>">
             
             <label for="newMobile">New Mobile:</label>
             <input type="text" id="newMobile" name="newMobile"><br><br>
