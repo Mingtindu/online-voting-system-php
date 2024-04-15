@@ -87,12 +87,12 @@ if (isset($_SESSION['alert_message'])) {
         <div class="navcontainer"> 
             <nav class="nav"> 
                 <div class="nav-upper-options"> 
-                    <div class="nav-option option1"> 
+                    <div class="nav-option option2"> 
                         <img src= 
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
                             class="nav-img" 
                             alt="userinfo"> 
-                            <a href="dashboard.php"style="text-decoration: none; color: white;"><h3> User info</h3> </a>
+                            <a href="dashboard.php"><h3> User info</h3> </a>
                     </div> 
   
                     <div class="option2 nav-option"> 
@@ -120,12 +120,12 @@ if (isset($_SESSION['alert_message'])) {
                             <a href="results.php"><h3> Results</h3></a> 
                     </div> 
   
-                    <div class="nav-option option6"> 
+                    <div class="nav-option option1"> 
                         <img src= 
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
                             class="nav-img" 
                             alt="settings"> 
-                            <a href="usetting.php"><h3> Setting</h3></a>  
+                            <a style="text-decoration: none; color: white;" href="usetting.php"><h3> Setting</h3></a>  
                     </div> 
   
                     <div class="nav-option logout"> 
@@ -155,29 +155,52 @@ if (isset($_SESSION['alert_message'])) {
             </div> 
   
             <div class="box-container"> 
-                <h1>User information</h1>
-                <div class="profile">
-                  
-                        <?php
-                $userData = $_SESSION['userData'];
+    <h1>User information</h1>
+    <div class="profile" id="userProfile">
+        <?php
+        $userData = $_SESSION['userData'];
 
-                // Display user information
-                $name = $userData['name'];
-                $mobile = $userData['mobile'];
-                $address = $userData['address'];
-                $photo = $userData['photo'];
+        // Display user information
+        $name = $userData['name'];
+        $mobile = $userData['mobile'];
+        $address = $userData['address'];
+        $photo = $userData['photo'];
 
-                echo "<p><strong>Name:</strong> $name </p>";
-                echo "<p><strong>Mobile:</strong> $mobile </p>";
-                echo "<p><strong>Address:</strong> $address </p>";
-                echo "<p><strong>Photo:</strong> <img src='../uploads/$photo' alt='User Photo'> </p>";
-                
-                ?>
-
-             </div>     
+        echo "<p><strong>Name:</strong> <span id='name'>$name</span></p>";
+        echo "<p><strong>Mobile:</strong> <span id='mobile'>$mobile</span></p>";
+        echo "<p><strong>Address:</strong> <span id='address'>$address</span></p>";
+        echo "<p><strong>Photo:</strong> <img src='../uploads/$photo' alt='User Photo'></p>";
+        ?>
+    </div>    
+    <a href="#" onclick="toggleEditSection()">Edit</a> 
+    <div class="edit-section" id="editSection" style="display: none;">
+        <!-- Your edit form goes here -->
+        <form action="edit_profile.php" method="post">
+            <label for="newName">New Name:</label>
+            <input type="text" id="newName" name="newName"><br><br>
             
-        
-        </div> 
+            <label for="newMobile">New Mobile:</label>
+            <input type="text" id="newMobile" name="newMobile"><br><br>
+            
+            <label for="newAddress">New Address:</label>
+            <input type="text" id="newAddress" name="newAddress"><br><br>
+            
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function toggleEditSection() {
+        var editSection = document.getElementById("editSection");
+        if (editSection.style.display === "none") {
+            editSection.style.display = "block";
+        } else {
+            editSection.style.display = "none";
+        }
+    }
+</script>
+
     </div> 
   
     <script src="./index.js"></script> 
