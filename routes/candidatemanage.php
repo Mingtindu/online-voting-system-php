@@ -246,10 +246,10 @@ button:hover {
            <h2>Candidate</h2>
                <form action="../api/candidateAdd.php" method="post">
                    
-               <label for="c-name">Name<input type="text" name="c-name></label>
-               <label for="c-address">Address<input type="text" name="c-address" ></label>
-               <label for="c-des">Description <textarea id="description" name="c-des" rows="4" cols="50" placeholder="Enter your description here..."></textarea></label>
-               <input type="submit" value="Add Candidate">
+               <label for="c-name">Name<input type="text" name="name"></label>
+               <label for="c-address">Address<input type="text" name="address" ></label>
+               <label for="c-des">Description <textarea id="description" name="des" rows="4" cols="50" placeholder="Enter your description here..."></textarea></label>
+               <input type="submit">
                </form>
                
            </div>

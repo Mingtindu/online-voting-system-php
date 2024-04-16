@@ -4,9 +4,6 @@ if(!isset($_SESSION['userData'])){
     header("location: ../");
     exit();
 }
-
-   
-
 if (isset($_SESSION['alert_message'])) {
     echo "<script>alert('" . $_SESSION['alert_message'] . "');</script>";
     unset($_SESSION['alert_message']);
@@ -170,7 +167,7 @@ if (isset($_SESSION['alert_message'])) {
                 echo "<p><strong>Name:</strong> $name </p>";
                 echo "<p><strong>Mobile:</strong> $mobile </p>";
                 echo "<p><strong>Address:</strong> $address </p>";
-                echo "<p><strong>Photo:</strong> <img src='../uploads/$photo' alt='User Photo'> </p>";
+                echo "<p><img src='../uploads/$photo' alt='User Photo'> </p>";
                 
                 ?>
 
