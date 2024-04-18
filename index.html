@@ -96,12 +96,14 @@ a:hover {
     margin: 10px 10px 10px 10px ;
 }
 #privacyPolicyContent {
-    display: none;
+    display: flex;
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 0px;
+    width: 400px;
+    margin-top: 10px;
 }
 
 #privacyPolicyContent h2 {
@@ -115,12 +117,33 @@ a:hover {
     color: #666;
     line-height: 1.6;
 }
+#howItWorksContent{
+     display: flex;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 0px;
+    width: 400px;
+    margin-top: 10px;
+
+}
+.main{
+    padding: 10px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: -80px;
+    justify-content: center;
+    align-items: center;
+    justify-items: start;
+}
 
 
     </style>
 </head>
 <body>
     <h1>Easy Online Voting System</h1>
+    <div class="main">
     <div class="login-container">
         <form action="api/login.php" method="post">
             <div class="input-group">
@@ -148,12 +171,13 @@ a:hover {
     
         <!-- Privacy Policy Button -->
         <div>
-            <button onclick="showPrivacyPolicy()" >Privacy Policy</button>
+            <button  onclick="showPrivacyPolicy()" >Privacy Policy</button>
             <div id="privacyPolicyContent" style="display: none;">
                 <h2>Privacy Policy</h2>
                 <p>Protecting your privacy is our top priority. We ensure that all personal information provided during the registration and voting process is securely stored and used only for the purpose of facilitating fair and transparent elections. We do not share any voter data with third parties.</p>
             </div>
         </div>
+    </div>
     </div>
 
     <script>
