@@ -40,7 +40,7 @@ else{
 
         }
         .input-section input{
-            width:400px;
+            width:150px;
             margin:10px;
             gap:20px;
         }
@@ -70,46 +70,52 @@ else{
     button:hover{
         background: #3a42b6;
     }
-    .input-section{
-        margin-top: 20px;
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
+    .input-section {
+    max-width: 400px;
+    margin: 0 auto;
     }
-    .input-section form{
-        font-size: 18px;
-        font-weight: 500;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+
+    .input-section h2 {
+        margin-bottom: 20px;
     }
-    input{
-        width: 60px;
-        border: 1;
-        height: 40px;
-        border: 1px solid gray;
+
+    .dis {
+        padding: 20px;
+        border: 1px solid #ccc;
         border-radius: 5px;
-     
     }
-    .btn{
-        justify-content: center;
-        text-align: center;
-        font-size: 25px;
-        font-weight: 600;
-        height: 30px;
-        margin:10px;
-        display:flex;
-        width:80px;
-        background: #767ab5;
-        color:black;
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="time"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
         cursor: pointer;
-        border-radius: 8px;
-        border: 1px solid black;
-        margin-left: 20px;
+        font-size: 16px;
+        width:80px;
     }
-    .btn:hover{
-        background: #3a42b6;
+    .btn:hover {
+        background-color: #45a049;
     }
+
     
     </style>
 </head> 
