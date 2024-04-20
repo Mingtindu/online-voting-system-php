@@ -104,7 +104,7 @@ else{
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
                             class="nav-img" 
                             alt="settings"> 
-                        <h3> Settings</h3> 
+                            <a href="usetting.php"><h3> Setting</h3></a>  
                     </div> 
   
                     <div class="nav-option logout"> 
