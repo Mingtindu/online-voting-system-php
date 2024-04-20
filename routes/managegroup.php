@@ -212,17 +212,62 @@ else{
             </div> 
   
             <div class="box-container"> 
+            <?php
+                    require('../api/connect.php');
+
+                    $sql = "SELECT id, name, date, time FROM elections"; // Include 'id' in the SELECT statement
+                    $result = $connect->query($sql);
+
+                    // Check if the query executed successfully
+                    if ($result) {
+                        // Get the number of rows returned by the query
+                        $num_elections = $result->num_rows;
+                        // echo "Number of elections in the database: " . $num_elections;
+                    } else {
+                        echo "Error executing query: " . $connect->error;
+                    }
+
+                    $connect->close();
+                ?>
+                
+                <?php
+                                // Include the file to establish database connection
+                                require('../api/connect.php');
+
+                                // SQL query to select all candidates from the 'candidate' table
+                                $sql = "SELECT * FROM candidate";
+
+                                // Execute the query
+                                $result = mysqli_query($connect, $sql);
+
+                                // Check if there are any results
+                                if ($result) {
+                                    // Get the number of rows returned by the query
+                                    $num_candidates = mysqli_num_rows($result);
+                                    
+                                    // // Output the number of candidates
+                                    // echo "Number of candidates in the database: " . $num_candidates;
+                                } else {
+                                    // If there's an error in executing the query, display the error
+                                    echo "Error executing query: " . mysqli_error($connect);
+                                }
+
+                                // Close the database connection
+                                mysqli_close($connect);
+                            ?>
+
   
                 <div class="box box1"> 
                     <div class="text"> 
-                        <h2 class="topic-heading">60.5k</h2> 
-                        <h2 class="topic">Article Views</h2> 
+                        <h2 class="topic-heading"><?php echo $num_elections ?></h2> 
+                        <h2 class="topic">No of Election</h2> 
                     </div> 
   
                     <img src= 
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
                         alt="Views"> 
                 </div> 
+                    
   
                 <div class="box box2"> 
                     <div class="text"> 
@@ -237,8 +282,8 @@ else{
   
                 <div class="box box3"> 
                     <div class="text"> 
-                        <h2 class="topic-heading">320</h2> 
-                        <h2 class="topic">Comments</h2> 
+                        <h2 class="topic-heading"><?php echo $num_candidates    ?></h2> 
+                        <h2 class="topic">No of Candidate</h2> 
                     </div> 
   
                     <img src= 
@@ -246,15 +291,7 @@ else{
                         alt="comments"> 
                 </div> 
   
-                <div class="box box4"> 
-                    <div class="text"> 
-                        <h2 class="topic-heading">70</h2> 
-                        <h2 class="topic">Published</h2> 
-                    </div> 
-  
-                    <img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published"> 
-                </div> 
+                
             </div> 
   
             <div class="report-container"> 
@@ -296,6 +333,7 @@ else{
 
                                 $connect->close();
                                 ?>
+
 
                     </div> 
                     
