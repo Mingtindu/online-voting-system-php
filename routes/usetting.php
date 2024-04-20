@@ -54,6 +54,24 @@ if (isset($_SESSION['alert_message'])) {
                 border-radius: 50%;
                 margin-top: 10px;
             }
+            .info-change{
+                width: 100px;
+                height: 40px;
+                border: 1px solid #ccc;
+                border-radius: 10px;
+                background: rgb(87, 81, 81);
+                color: white;
+            }
+            .info-change:hover{
+                cursor: pointer;
+                background: rgb(120, 138, 120);
+
+            }
+            .info-change a{
+                color: rgb(0, 0, 0);
+                font-size: 14px;
+                font-weight: 500;
+            }
 </style>
 </head> 
   
@@ -169,10 +187,11 @@ if (isset($_SESSION['alert_message'])) {
         echo "<p><strong>Name:</strong> <span id='name'>$name</span></p>";
         echo "<p><strong>Mobile:</strong> <span id='mobile'>$mobile</span></p>";
         echo "<p><strong>Address:</strong> <span id='address'>$address</span></p>";
-        echo "<p><strong>Photo:</strong> <img src='../uploads/$photo' alt='User Photo'></p>";
+        echo "<p><img src='../uploads/$photo' alt='User Photo'></p>";
         ?>
+    <button class="info-change"><a href="#" onclick="toggleEditSection()">Edit User Info</a> </button>
     </div>    
-    <a href="#" onclick="toggleEditSection()">Edit</a> 
+   
     <div class="edit-section" id="editSection" style="display: none;">
         <!-- Your edit form goes here -->
         <form action="../api/userEdit.php" method="post">

@@ -1,9 +1,9 @@
 <?php
 session_start();
-// if(!isset($_SESSION['userData'])){
-//     header("location: ../");
-//     exit();
-// }
+if(!isset($_SESSION['userData'])){
+    header("location: ../");
+    exit();
+}
 
     
 ?>
