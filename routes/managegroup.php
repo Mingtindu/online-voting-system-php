@@ -1,9 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['userData'])){
+if(!isset($_SESSION['adminData'])){
     header("location: ../");
     exit();
 }
+
 else{
 
 }
